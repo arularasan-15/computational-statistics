@@ -1,0 +1,18 @@
+import plotly.express as px
+import pandas as pd
+import matplotlib.pyplot as plt
+df = px.data.iris()
+petal_width_desc = df['petal_width'].describe()
+print("Statistical Description for 'Petal Width':")
+print(petal_width_desc)
+plt.figure(figsize=(8, 5))
+plt.boxplot(df['petal_width'], vert=False)
+plt.title('Box Plot of Petal Width')
+plt.xlabel('Petal Width')
+plt.show()
+plt.figure(figsize=(8, 5))
+plt.scatter(df['petal_length'], df['petal_width'])
+plt.title('Dependency Curve: Petal Length vs Petal Width')
+plt.xlabel('Petal Length')
+plt.ylabel('Petal Width')
+plt.show()
