@@ -1,0 +1,67 @@
+import pandas as pd
+import numpy as np
+data_1d = pd.Series([0.374540, 0.950714, 0.731994, 0.598658, 0.156019])
+sum_1d = data_1d.sum()
+mean_1d = data_1d.mean()
+count_1d = data_1d.count()
+min_1d = data_1d.min()
+max_1d = data_1d.max()
+std_1d = data_1d.std()
+var_1d = data_1d.var()
+mad_1d = data_1d.mad()
+prod_1d = data_1d.prod()
+median_1d = data_1d.median()
+first_1d = data_1d.iloc[0]
+last_1d = data_1d.iloc[-1]
+
+print("1D Aggregation:")
+print(f"Sum = {sum_1d}")
+print(f"Mean = {mean_1d}")
+print(f"Count = {count_1d}")
+print(f"Minimum = {min_1d}")
+print(f"Maximum = {max_1d}")
+print(f"Standard Deviation = {std_1d}")
+print(f"Variance = {var_1d}")
+print(f"Mean Absolute Deviation = {mad_1d}")
+print(f"Product = {prod_1d}")
+print(f"Median = {median_1d}")
+print(f"First = {first_1d}")
+print(f"Last = {last_1d}")
+# 2D Data
+data_2d = pd.DataFrame({
+    'A': [0.183405, 0.304242, 0.524756, 0.431945, 0.291229],
+    'B': [0.611853, 0.139494, 0.292145, 0.366362, 0.456070]
+})
+
+sum_2d_col = data_2d.sum()
+mean_2d_col = data_2d.mean()
+min_2d_col = data_2d.min()
+max_2d_col = data_2d.max()
+
+sum_2d_row = data_2d.sum(axis=1)
+
+print("\n2D Aggregation:")
+print("Column-wise Aggregation:")
+print(f"Sum (Columnwise):\n{sum_2d_col}")
+print(f"Mean (Columnwise):\n{mean_2d_col}")
+print(f"Minimum (Columnwise):\n{min_2d_col}")
+print(f"Maximum (Columnwise):\n{max_2d_col}")
+
+print("\nRow-wise Aggregation:")
+print(f"Sum (Rowwise):\n{sum_2d_row}")
+
+data_nd = pd.DataFrame({
+    'Method': ['Method A', 'Method B', 'Method A', 'Method B', 'Method A'],
+    'Orbital Period': [365, 24, 365, 24, 365],
+    'Year': [2001, 2002, 2003, 2004, 2005],
+    'Value': [1.0, 2.0, 3.0, 4.0, 5.0]
+})
+
+grouped_nd = data_nd.groupby(['Method', 'Orbital Period'])
+
+agg_nd = grouped_nd.agg({
+    'Value': ['sum', 'mean', 'std', 'var', 'min', 'max'],
+    'Year': ['min', 'max']
+})
+print("\nn-D Aggregation:")
+print(agg_nd)
