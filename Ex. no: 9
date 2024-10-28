@@ -1,0 +1,16 @@
+import matplotlib.pyplot as plt
+product = ['computer', 'monitor', 'laptop', 'printer', 'tablet']
+quantity = [320, 450, 300, 120, 280]
+plt.figure(figsize=(10, 5))
+plt.subplot(1, 2, 1)
+plt.bar(product, quantity, color='skyblue')
+plt.xlabel('Product')
+plt.ylabel('Quantity')
+plt.title('Vertical Bar Plot')
+plt.subplot(1, 2, 2)
+plt.barh(product, quantity, color='lightgreen')
+plt.xlabel('Quantity')
+plt.ylabel('Product')
+plt.title('Horizontal Bar Plot (H-Plot)')
+plt.tight_layout()
+plt.show()
